@@ -7,41 +7,41 @@ class Feedback extends React.Component {
     bad: 0,
   };
 
-  increaseGood = () => {
+  increaseState = type => {
     this.setState(prevState => ({
-      good: prevState.good + 1,
+      ...prevState,
+      [type]: prevState[type] + 1,
     }));
   };
 
-  increaseNeutral = () => {
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
-    }));
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
   };
-
-  increaseBad = () => {
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
-    }));
+  countPositiveFeedbackPercentage = () => {
+    const { good, neutral, bad } = this.state;
+    return Math.round((good * 100) / (good + neutral + bad));
   };
 
   render() {
     return (
       <div>
         <h1>Please leave feedback</h1>
-        <button type="button" onClick={this.increaseGood}>
+        <button type="button" onClick={() => this.increaseState('good')}>
           Good
         </button>
-        <button type="button" onClick={this.increaseNeutral}>
+        <button type="button" onClick={() => this.increaseState('neutral')}>
           Neutral
         </button>
-        <button type="button" onClick={this.increaseBad}>
+        <button type="button" onClick={() => this.increaseState('bad')}>
           Bad
         </button>
         <h2>Statistics</h2>
         <p>Good {this.state.good}</p>
         <p>Neutral {this.state.neutral}</p>
         <p>Bad {this.state.bad}</p>
+        <p>Total {this.countTotalFeedback()} </p>
+        <p>Positive Feedback {this.countPositiveFeedbackPercentage()}</p>
       </div>
     );
   }
