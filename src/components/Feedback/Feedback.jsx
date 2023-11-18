@@ -1,4 +1,6 @@
 import React from 'react';
+import ButtonList from '../Feedback/ButtonList.jsx';
+import Statistics from '../Feedback/Statistics.jsx';
 
 class Feedback extends React.Component {
   state = {
@@ -24,24 +26,26 @@ class Feedback extends React.Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
+    const options = Object.keys(this.state);
+    const feedbackArr = [good, neutral, bad];
+    const totalFeedback = this.countTotalFeedback();
+    const positivePercentage = this.countPositiveFeedbackPercentage();
+
     return (
       <div>
         <h1>Please leave feedback</h1>
-        <button type="button" onClick={() => this.increaseState('good')}>
-          Good
-        </button>
-        <button type="button" onClick={() => this.increaseState('neutral')}>
-          Neutral
-        </button>
-        <button type="button" onClick={() => this.increaseState('bad')}>
-          Bad
-        </button>
+        <ButtonList
+          options={Object.keys(this.state)}
+          increaseState={this.increaseState}
+        ></ButtonList>
         <h2>Statistics</h2>
-        <p>Good {this.state.good}</p>
-        <p>Neutral {this.state.neutral}</p>
-        <p>Bad {this.state.bad}</p>
-        <p>Total {this.countTotalFeedback()} </p>
-        <p>Positive Feedback {this.countPositiveFeedbackPercentage()}</p>
+        <Statistics
+          options={options}
+          feedbackArr={feedbackArr}
+          total={totalFeedback}
+          positivePercentage={positivePercentage}
+        ></Statistics>
       </div>
     );
   }
