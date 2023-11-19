@@ -1,10 +1,5 @@
-import React from 'react';
-import Feedback from '../components/Feedback/Feedback.jsx';
+import Feedback from './Feedback/Feedback';
 
 export const App = () => {
-  return (
-    <div>
-      <Feedback />
-    </div>
-  );
+  return <Feedback />;
 };
