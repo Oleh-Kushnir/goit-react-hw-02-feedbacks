@@ -4,6 +4,12 @@ import Statistics from '../Feedback/Statistics.jsx';
 import Section from '../Feedback/Section.jsx';
 import Notification from '../Feedback/Notification.jsx';
 
+import {
+  FeedbackMain,
+  AppContainer,
+  GradientBorder,
+} from '../Feedback/Feedback.module.jsx';
+
 class Feedback extends React.Component {
   state = {
     good: 0,
@@ -35,26 +41,30 @@ class Feedback extends React.Component {
     const positivePercentage = this.countPositiveFeedbackPercentage();
 
     return (
-      <div>
-        <Section title="Please leave feedback">
-          <ButtonList
-            options={Object.keys(this.state)}
-            increaseState={this.increaseState}
-          ></ButtonList>
-        </Section>
-        <Section title="Statistics">
-          {this.countTotalFeedback() === 0 ? (
-            <Notification message="There is no feedback"></Notification>
-          ) : (
-            <Statistics
-              options={options}
-              feedbackArr={feedbackArr}
-              total={totalFeedback}
-              positivePercentage={positivePercentage}
-            ></Statistics>
-          )}
-        </Section>
-      </div>
+      <AppContainer>
+        <GradientBorder>
+          <FeedbackMain>
+            <Section title="Please leave feedback">
+              <ButtonList
+                options={Object.keys(this.state)}
+                increaseState={this.increaseState}
+              ></ButtonList>
+            </Section>
+            <Section title="Statistics">
+              {this.countTotalFeedback() === 0 ? (
+                <Notification message="There is no feedback"></Notification>
+              ) : (
+                <Statistics
+                  options={options}
+                  feedbackArr={feedbackArr}
+                  total={totalFeedback}
+                  positivePercentage={positivePercentage}
+                ></Statistics>
+              )}
+            </Section>
+          </FeedbackMain>
+        </GradientBorder>
+      </AppContainer>
     );
   }
 }
