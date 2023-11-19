@@ -99,3 +99,4 @@ export const StateItem = styled.p`
   font-size: 20px;
   margin: 10px;
 `;
+//You need to enable JavaScript to run this app.
