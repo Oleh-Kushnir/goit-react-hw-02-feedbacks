@@ -4,18 +4,16 @@ export const AppContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #1e90ff;
+  padding: 200px;
+  background: ;
 `;
 
 export const FeedbackMain = styled.div`
   width: 400px;
   height: 400px;
-  border: 2px solid #ccc;
   padding: 20px;
   color: white;
   font-family: 'Raleway';
-  background-color: #7b68ee;
 `;
 
 const gradientAnimation = keyframes`
@@ -31,19 +29,17 @@ const gradientAnimation = keyframes`
 `;
 
 export const GradientBorder = styled.div`
-  /* Add border type */
-  border: 3px solid transparent;
   background: #1d1f20;
   position: relative;
-  border-radius: 3px; /* Set your preferred border radius */
+  border-radius: 3px;
 
   &:after {
     content: '';
     position: absolute;
-    top: -3px; /* Use the border value as a negative offset */
-    left: -3px; /* Use the border value as a negative offset */
-    height: calc(100% + 6px); /* Adjust height based on border value */
-    width: calc(100% + 6px); /* Adjust width based on border value */
+    top: -3px;
+    left: -3px;
+    height: calc(100% + 6px);
+    width: calc(100% + 6px);
     background: linear-gradient(
       60deg,
       #f79533,
@@ -55,18 +51,51 @@ export const GradientBorder = styled.div`
       #07b39b,
       #6fba82
     );
-    border-radius: 6px; /* Use double the border width for border-radius */
+    border-radius: 6px;
     z-index: -1;
-    animation: ${gradientAnimation} 3s ease infinite alternate; /* removed alternate */
+    animation: ${gradientAnimation} 3s ease infinite alternate;
     background-size: 300% 300%;
   }
 `;
 
-// // Использование компонента GradientBorder:
-// const YourComponent = () => {
-//   return (
-//     <GradientBorder>
-//       {/* Ваш контент здесь */}
-//     </GradientBorder>
-//   );
-// };
+export const ButtonListItem = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+`;
+
+export const Button = styled.button`
+  flex: 1;
+  margin: 0 15px;
+  box-shadow: 0 5px 15px 0 #ffffff;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: 0.5s;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    transform: translate(0, -3px);
+    box-shadow: 0 20px 40px 0 #ffffff;
+  }
+`;
+
+export const FeedbackStatisticsItem = styled.span`
+  font-size: 20px;
+`;
+
+export const FeedbackTitle = styled.h1`
+  font-size: 24px;
+  text-align: center;
+`;
+
+export const SectionStyled = styled.div``;
+
+export const StateList = styled.div``;
+
+export const StateItem = styled.p`
+  font-size: 20px;
+  margin: 10px;
+`;

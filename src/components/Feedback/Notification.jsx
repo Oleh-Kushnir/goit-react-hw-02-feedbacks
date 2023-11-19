@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
-// import { FeedbackStatisticsItem } from './Feedback.styled.jsx';
+import { FeedbackStatisticsItem } from '../Feedback/Feedback.module.jsx';
 
 const Notification = ({ message }) => {
-  return <div>{message}</div>;
+  return <FeedbackStatisticsItem>{message}</FeedbackStatisticsItem>;
 };
 
 Notification.propTypes = {

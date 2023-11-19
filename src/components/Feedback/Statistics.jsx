@@ -1,18 +1,22 @@
 import PropTypes from 'prop-types';
 
+import { StateList, StateItem } from '../Feedback/Feedback.module.jsx';
+
 const Statistics = ({ options, feedbackArr, total, positivePercentage }) => {
   return (
-    <div>
+    <StateList>
       {options.map((element, i) => (
-        <div key={element}>
+        <StateItem key={element}>
           {element}:{feedbackArr[i]}
-        </div>
+        </StateItem>
       ))}
-      <div>Total Feedback: {total}</div>
+      <StateItem>Total Feedback: {total}</StateItem>
       {total !== 0 && (
-        <div>Precent of positive Feedback: {positivePercentage} %</div>
+        <StateItem>
+          Precent of positive Feedback: {positivePercentage} %
+        </StateItem>
       )}
-    </div>
+    </StateList>
   );
 };
 

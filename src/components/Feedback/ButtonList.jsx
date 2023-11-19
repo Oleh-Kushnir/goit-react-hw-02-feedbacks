@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 
+import { ButtonListItem, Button } from '../Feedback/Feedback.module.jsx';
 const ButtonList = ({ options, increaseState }) => {
   return (
-    <div>
+    <ButtonListItem>
       {options.map(el => (
-        <button key={el} onClick={() => increaseState(el)}>
+        <Button key={el} onClick={() => increaseState(el)}>
           {el}
-        </button>
+        </Button>
       ))}
-    </div>
+    </ButtonListItem>
   );
 };
 
