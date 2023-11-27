@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { ButtonListItem, Button } from '../Feedback/Feedback.module.jsx';
+
 const ButtonList = ({ options, increaseState }) => {
   return (
     <ButtonListItem>

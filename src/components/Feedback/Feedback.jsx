@@ -1,8 +1,8 @@
 import React from 'react';
-import ButtonList from '../Feedback/ButtonList.jsx';
-import Statistics from '../Feedback/Statistics.jsx';
-import Section from '../Feedback/Section.jsx';
-import Notification from '../Feedback/Notification.jsx';
+import ButtonList from '../ButtonList/ButtonList.jsx';
+import Statistics from '../Statistics/Statistics.jsx';
+import Section from '../Section/Section.jsx';
+import Notification from '../Notificationt/Notification.jsx';
 
 import {
   FeedbackMain,
@@ -48,18 +48,18 @@ class Feedback extends React.Component {
               <ButtonList
                 options={Object.keys(this.state)}
                 increaseState={this.increaseState}
-              ></ButtonList>
+              />
             </Section>
             <Section title="Statistics">
               {this.countTotalFeedback() === 0 ? (
-                <Notification message="There is no feedback"></Notification>
+                <Notification message="There is no feedback" />
               ) : (
                 <Statistics
                   options={options}
                   feedbackArr={feedbackArr}
                   total={totalFeedback}
                   positivePercentage={positivePercentage}
-                ></Statistics>
+                />
               )}
             </Section>
           </FeedbackMain>
